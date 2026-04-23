@@ -4,7 +4,7 @@
 
 namespace cvlite::layers {
 
-core::Tensor forward(core::Tensor &input)
+core::Tensor forward(core::Tensor input)
 {
     auto data_view = input.data();
 
@@ -12,7 +12,7 @@ core::Tensor forward(core::Tensor &input)
         value = std::max(0.0f, value);
     }
 
-    return std::move(input);
+    return input;
 }
 
 } // namespace cvlite::layers

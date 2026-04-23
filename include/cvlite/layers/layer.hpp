@@ -14,7 +14,7 @@ class Layer {
 public:
     virtual ~Layer() = default;
 
-    [[nodiscard]] virtual core::Tensor forward(core::Tensor& input) = 0;
+    [[nodiscard]] virtual core::Tensor forward(core::Tensor input) = 0;
 
     Layer(const Layer&) = delete;
     Layer& operator=(const Layer&) = delete;

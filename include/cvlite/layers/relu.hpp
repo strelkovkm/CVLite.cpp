@@ -8,7 +8,7 @@ class ReLU : public Layer {
 public:
     ReLU() = default;
     
-    [[nodiscard]] core::Tensor forward(core::Tensor& input) override;
+    [[nodiscard]] core::Tensor forward(core::Tensor input) override;
 };
 
 } // namespace cvlite::layers
