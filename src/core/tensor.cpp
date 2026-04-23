@@ -1,7 +1,6 @@
 #include "cvlite/core/tensor.hpp"
 #include <stdexcept>
 #include <string>
-#include "tensor.hpp"
 
 namespace cvlite::core {
     cvlite::core::Tensor::Tensor(const Shape &shape) : shape_(shape) {

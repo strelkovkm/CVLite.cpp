@@ -11,8 +11,8 @@ public:
     [[nodiscard]] core::Tensor forward(core::Tensor input) override;
 
 private:
-    int in_ch_;
-    int out_ch_;
+    size_t in_ch_;
+    size_t out_ch_;
 
     std::vector<float> weights_;
     std::vector<float> bias_;

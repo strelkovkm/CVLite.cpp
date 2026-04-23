@@ -12,6 +12,7 @@ add_library(cvlite
     src/core/shape.cpp
     src/layers/conv3x3.cpp
     src/layers/relu.cpp
+    src/pipeline/sequential.cpp
 )
 
 enable_testing()
