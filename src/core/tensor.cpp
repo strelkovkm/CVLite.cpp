@@ -35,9 +35,9 @@ const float &Tensor::at(size_t n, size_t c, size_t h, size_t w) const {
     return data_[get_index(n, c, h, w)];
 }
 Tensor Tensor::clone() const {
-    Tensor copy(shape_);
-    copy.data_ = data_;
-    return copy;
+    Tensor result(shape_);
+    result.data_ = this->data_; 
+    return result;
 }
 
 

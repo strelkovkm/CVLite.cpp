@@ -1,6 +1,7 @@
 #pragma once
 
 #include "layer.hpp"
+#include "cvlite/core/parameter.hpp"
 
 namespace cvlite::layers {
 
@@ -10,12 +11,15 @@ public:
     
     [[nodiscard]] core::Tensor forward(core::Tensor input) override;
 
+    [[nodiscard]] core::Tensor backward(core::Tensor input) override;
+
+    [[nodiscard]] std::vector<core::Parameter*> get_parameters();
 private:
     size_t in_ch_;
     size_t out_ch_;
 
-    std::vector<float> weights_;
-    std::vector<float> bias_;
+    core::Parameter weights_;
+    core::Parameter bias_;
 };
 
 } // namespace cvlite::layers

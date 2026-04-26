@@ -35,4 +35,23 @@ core::Tensor Sequential::forward(core::Tensor input) {
     return predict(std::move(input));
 }
 
+void Sequential::train() {
+    for (auto& layer : layers_) {
+        layer->train();
+    }
+}
+
+void Sequential::eval() {
+    for (auto& layer : layers_) {
+        layer->eval();
+    }
+}
+
+core::Tensor Sequential::backward(core::Tensor grad_output) {
+    for (int i = static_cast<int>(layers_.size()) - 1; i >= 0; --i) {
+        grad_output = layers_[i]->backward(std::move(grad_output));
+    }
+    return grad_output;
+}
+
 } // namespace cvlite

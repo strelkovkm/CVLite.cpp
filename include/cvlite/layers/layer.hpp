@@ -1,6 +1,8 @@
 #pragma once
 
 #include "cvlite/core/tensor.hpp"
+
+#include <optional>
 #include <memory>
 
 namespace cvlite::layers {
@@ -21,8 +23,18 @@ public:
     Layer(const Layer&) = delete;
     Layer& operator=(const Layer&) = delete;
 
+    void train() { is_training_ = true; }
+
+    void eval() { 
+        is_training_ = false;
+        last_input_ = std::nullopt;
+    }
+
 protected:
-    core::Tensor last_input_;
+    bool is_training_ = true;
+
+    std::optional<core::Tensor> last_input_;
+
     Layer() = default;
     Layer(Layer&&) noexcept = default;
     Layer& operator=(Layer&&) noexcept = default;
