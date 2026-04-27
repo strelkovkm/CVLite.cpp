@@ -1,0 +1,2 @@
+add_executable(simple_inference simple_inference.cpp)
+target_link_libraries(simple_inference PRIVATE cvlite)
